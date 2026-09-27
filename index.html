@@ -1,1 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday ❤️</title>
 
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:Arial, sans-serif;
+  background:linear-gradient(135deg,#fff0f5,#ffe4ec,#fff);
+  color:#333;
+  text-align:center;
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+.container{
+  width:100%;
+  max-width:600px;
+  margin:auto;
+  padding:25px 18px 50px;
+}
+
+.hero{
+  padding-top:25px;
+}
+
+.small{
+  font-size:15px;
+  color:#888;
+  letter-spacing:2px;
+  margin-bottom:10px;
+}
+
+h1{
+  font-size:42px;
+  color:#e91e63;
+  margin-bottom:8px;
+}
+
+.subtitle{
+  font-size:18px;
+  color:#666;
+  margin-bottom:25px;
+}
+
+.main-photo{
+  width:220px;
+  height:220px;
+  object-fit:cover;
+  border-radius:50%;
+  border:7px solid white;
+  box-shadow:0 10px 30px rgba(0,0,0,.18);
+  margin-bottom:25px;
+}
+
+.card{
+  background:rgba(255,255,255,.9);
+  border-radius:25px;
+  padding:25px 20px;
+  margin:20px 0;
+  box-shadow:0 8px 30px rgba(0,0,0,.08);
+}
+
+.card h2{
+  color:#e91e63;
+  margin-bottom:15px;
+}
+
+.message{
+  font-size:17px;
+  line-height:1.7;
+  color:#555;
+}
+
+.countdown{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:8px;
+  margin-top:20px;
+}
+
+.time-box{
+  background:#e91e63;
+  color:white;
+  border-radius:15px;
+  padding:12px 5px;
+}
+
+.time-box span{
+  display:block;
+  font-size:25px;
+  font-weight:bold;
+}
+
+.time-box small{
+  font-size:11px;
+}
+
+button{
+  border:none;
+  background:linear-gradient(135deg,#e91e63,#ff4081);
+  color:white;
+  padding:16px 28px;
+  border-radius:50px;
+  font-size:17px;
+  font-weight:bold;
+  cursor:pointer;
+  box-shadow:0 8px 20px rgba(233,30,99,.3);
+  margin-top:15px;
+}
+
+button:active{
+  transform:scale(.96);
+}
+
+.hidden-message{
+  display:none;
+  margin-top:20px;
+  color:#e91e63;
+  font-size:18px;
+  line-height:1.6;
+}
+
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+  margin-top:15px;
+}
+
+.gallery img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  border-radius:18px;
+  box-shadow:0 5px 15px rgba(0,0,0,.12);
+}
+
+.footer{
+  margin-top:30px;
+  color:#999;
+  font-size:13px;
+}
+
+.heart{
+  position:fixed;
+  bottom:-30px;
+  font-size:22px;
+  animation:floatUp 5s linear infinite;
+  pointer-events:none;
+}
+
+@keyframes floatUp{
+  0%{
+    transform:translateY(0);
+    opacity:0;
+  }
+  20%{
+    opacity:1;
+  }
+  100%{
+    transform:translateY(-110vh) rotate(360deg);
+    opacity:0;
+  }
+}
+
+@media(max-width:400px){
+  h1{
+    font-size:35px;
+  }
+
+  .main-photo{
+    width:190px;
+    height:190px;
+  }
+
+  .time-box span{
+    font-size:21px;
+  }
+
+  .gallery img{
+    height:150px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <section class="hero">
+
+    <div class="small">A SPECIAL DAY FOR</div>
+
+    <h1>Happy Birthday 🎂</h1>
+
+    <div class="subtitle" id="nameText">
+      Ananya ❤️
+    </div>
+
+    <img
+      id="mainPhoto"
+      class="main-photo"
+      src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600"
+      alt="Birthday Photo"
+    >
+
+  </section>
+
+
+  <div class="card">
+
+    <h2>🎉 Your Birthday Countdown</h2>
+
+    <div class="countdown">
+
+      <div class="time-box">
+        <span id="days">00</span>
+        <small>DAYS</small>
+      </div>
+
+      <div class="time-box">
+        <span id="hours">00</span>
+        <small>HOURS</small>
+      </div>
+
+      <div class="time-box">
+        <span id="minutes">00</span>
+        <small>MINUTES</small>
+      </div>
+
+      <div class="time-box">
+        <span id="seconds">00</span>
+        <small>SECONDS</small>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="card">
+
+    <h2>💌 A Message For You</h2>
+
+    <p class="message" id="messageText">
+      Happy Birthday Ananya! ❤️ May your special day be filled with happiness,
+      laughter and beautiful memories. You are truly special, and I hope this
+      year brings you everything you wish for. Keep smiling and keep shining! ✨
+    </p>
+
+  </div>
+
+
+  <div class="card">
+
+    <h2>🎁 One Little Surprise</h2>
+
+    <p style="color:#777;">
+      There is something special waiting for you...
+    </p>
+
+    <button onclick="openSurprise()">
+      Open Your Surprise 💝
+    </button>
+
+    <div class="hidden-message" id="surprise">
+      ✨ You deserve all the happiness in the world! ✨
+      <br><br>
+      Never stop smiling. ❤️
+      <br>
+      Happy Birthday! 🎂🥳
+    </div>
+
+  </div>
+
+
+  <div class="card">
+
+    <h2>📸 Beautiful Memories</h2>
+
+    <div class="gallery">
+
+      <img
+        src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=600"
+        alt="Memory 1"
+      >
+
+      <img
+        src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=600"
+        alt="Memory 2"
+      >
+
+      <img
+        src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600"
+        alt="Memory 3"
+      >
+
+      <img
+        src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=600"
+        alt="Memory 4"
+      >
+
+    </div>
+
+  </div>
+
+
+  <div class="footer">
+    Made with ❤️ just for you
+  </div>
+
+</div>
+
+
+<script>
+
+/* ==============================
+   CUSTOMIZE THIS PART
+   ============================== */
+
+const birthdayData = {
+
+  name: "Ananya",
+
+  birthday: "2026-10-05T00:00:00",
+
+  mainPhoto:
+  "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600",
+
+  message:
+  "Happy Birthday Ananya! ❤️ May your special day be filled with happiness, laughter and beautiful memories. You are truly special, and I hope this year brings you everything you wish for. Keep smiling and keep shining! ✨"
+
+};
+
+
+/* Name */
+
+document.getElementById("nameText").innerHTML =
+birthdayData.name + " ❤️";
+
+
+/* Main Photo */
+
+document.getElementById("mainPhoto").src =
+birthdayData.mainPhoto;
+
+
+/* Message */
+
+document.getElementById("messageText").innerHTML =
+birthdayData.message;
+
+
+/* Countdown */
+
+const birthdayDate =
+new Date(birthdayData.birthday).getTime();
+
+function updateCountdown(){
+
+  const now = new Date().getTime();
+
+  const difference = birthdayDate - now;
+
+  if(difference <= 0){
+
+    document.getElementById("days").innerText = "00";
+    document.getElementById("hours").innerText = "00";
+    document.getElementById("minutes").innerText = "00";
+    document.getElementById("seconds").innerText = "00";
+
+    return;
+  }
+
+  const days =
+  Math.floor(difference / (1000 * 60 * 60 * 24));
+
+  const hours =
+  Math.floor(
+    (difference % (1000 * 60 * 60 * 24))
+    / (1000 * 60 * 60)
+  );
+
+  const minutes =
+  Math.floor(
+    (difference % (1000 * 60 * 60))
+    / (1000 * 60)
+  );
+
+  const seconds =
+  Math.floor(
+    (difference % (1000 * 60))
+    / 1000
+  );
+
+
+  document.getElementById("days").innerText =
+  String(days).padStart(2,"0");
+
+  document.getElementById("hours").innerText =
+  String(hours).padStart(2,"0");
+
+  document.getElementById("minutes").innerText =
+  String(minutes).padStart(2,"0");
+
+  document.getElementById("seconds").innerText =
+  String(seconds).padStart(2,"0");
+
+}
+
+setInterval(updateCountdown,1000);
+
+updateCountdown();
+
+
+/* Surprise */
+
+function openSurprise(){
+
+  document.getElementById("surprise").style.display =
+  "block";
+
+  createHearts();
+
+}
+
+
+/* Hearts */
+
+function createHearts(){
+
+  for(let i=0;i<25;i++){
+
+    const heart =
+    document.createElement("div");
+
+    heart.className = "heart";
+
+    heart.innerHTML = "❤️";
+
+    heart.style.left =
+    Math.random()*100 + "%";
+
+    heart.style.animationDelay =
+    Math.random()*2 + "s";
+
+    heart.style.fontSize =
+    (15 + Math.random()*20) + "px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+      heart.remove();
+    },6000);
+
+  }
+
+}
+
+</script>
+
+</body>
+</html>
