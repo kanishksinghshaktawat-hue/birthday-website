@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday ❤️</title>
+<meta name="theme-color" content="#f7a8c4">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:linear-gradient(180deg,#fff8fb 0%,#ffe8f1 100%);
+  color:#444;overflow-x:hidden
+}
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(circle at 20% 10%,rgba(255,255,255,.9),transparent 25%),
+             radial-gradient(circle at 80% 40%,rgba(255,190,215,.28),transparent 28%);
+}
+.container{position:relative;z-index:2;max-width:760px;margin:auto;padding:34px 18px 55px}
+.hero{text-align:center;padding:28px 8px 34px}
+.kicker{letter-spacing:5px;color:#999;font-size:13px;margin-bottom:18px;text-transform:uppercase}
+h1{font-size:clamp(42px,11vw,76px);line-height:1.02;color:#df1764;font-weight:800}
+.hero-name{font-size:28px;margin:14px 0 25px;color:#555}
+.photo-wrap{width:min(290px,76vw);height:min(290px,76vw);margin:0 auto 25px;position:relative}
+.photo-wrap:before{
+  content:"";position:absolute;inset:-12px;border:2px dashed #f38bb2;border-radius:50%;
+  animation:spin 18s linear infinite
+}
+.photo-wrap:after{
+  content:"";position:absolute;inset:-4px;border:8px solid white;border-radius:50%;
+  box-shadow:0 15px 35px rgba(177,71,110,.18)
+}
+.main-photo{width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;position:relative;z-index:1}
+@keyframes spin{to{transform:rotate(360deg)}}
+.btn{
+  border:0;background:linear-gradient(135deg,#ec1f70,#f64b91);color:white;
+  padding:16px 30px;border-radius:40px;font-size:18px;font-weight:700;
+  box-shadow:0 14px 30px rgba(236,31,112,.28);cursor:pointer;
+  transition:.25s;display:inline-block
+}
+.btn:active{transform:scale(.96)}
+.card{
+  background:rgba(255,255,255,.93);border-radius:30px;padding:27px 20px;
+  margin:22px 0;box-shadow:0 15px 45px rgba(157,68,104,.10);
+  position:relative;overflow:hidden
+}
+.card h2{text-align:center;color:#df1764;font-size:29px;margin-bottom:22px}
+.countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.time{
+  background:linear-gradient(135deg,#ed1768,#f45a98);color:white;border-radius:20px;
+  padding:17px 5px;text-align:center
+}
+.time b{font-size:31px;display:block}.time span{font-size:12px;letter-spacing:1px}
+.message{text-align:center;font-size:19px;line-height:1.75;color:#555}
+.gallery{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.gallery img{
+  width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:22px;
+  box-shadow:0 8px 22px rgba(0,0,0,.08);animation:photoIn .8s ease both
+}
+.gallery img:nth-child(2){animation-delay:.12s}.gallery img:nth-child(3){animation-delay:.24s}.gallery img:nth-child(4){animation-delay:.36s}
+@keyframes photoIn{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:scale(1)}}
+.footer{text-align:center;color:#999;padding:12px;font-size:14px}
+.music{
+  position:fixed;right:17px;top:17px;z-index:20;width:54px;height:54px;border-radius:50%;
+  border:0;background:white;box-shadow:0 10px 30px rgba(0,0,0,.13);font-size:23px;cursor:pointer
+}
+.heart{
+  position:fixed;bottom:-30px;z-index:10;pointer-events:none;
+  animation:floatUp linear forwards;opacity:.9
+}
+@keyframes floatUp{
+  0%{transform:translateY(0) rotate(0deg);opacity:0}
+  10%{opacity:.9}100%{transform:translateY(-115vh) rotate(25deg);opacity:0}
+}
+.modal{
+  position:fixed;inset:0;background:rgba(35,10,22,.72);backdrop-filter:blur(8px);
+  z-index:50;display:none;align-items:center;justify-content:center;padding:20px
+}
+.modal.show{display:flex}
+.modal-box{
+  width:min(500px,100%);background:white;border-radius:32px;padding:38px 25px;
+  text-align:center;animation:pop .55s cubic-bezier(.2,.9,.2,1)
+}
+@keyframes pop{0%{transform:scale(.55);opacity:0}100%{transform:scale(1);opacity:1}}
+.gift{font-size:76px;animation:bounce 1s infinite alternate}
+@keyframes bounce{to{transform:translateY(-10px) rotate(4deg)}}
+.modal h3{font-size:32px;color:#df1764;margin:15px 0}
+.modal p{font-size:18px;line-height:1.65;color:#666;margin-bottom:22px}
+.sparkle{position:absolute;font-size:25px;animation:twinkle 1.8s infinite}
+.s1{left:8%;top:15%}.s2{right:8%;top:24%;animation-delay:.5s}.s3{left:15%;bottom:18%;animation-delay:.9s}.s4{right:13%;bottom:13%;animation-delay:.2s}
+@keyframes twinkle{50%{transform:scale(1.35) rotate(12deg);opacity:.5}}
+@media(max-width:480px){
+  .container{padding-left:14px;padding-right:14px}
+  .card{padding:24px 15px;border-radius:27px}
+  .countdown{gap:7px}.time{padding:15px 3px;border-radius:17px}.time b{font-size:25px}.time span{font-size:10px}
+  .message{font-size:17px}.gallery{gap:10px}
+}
+</style>
+</head>
+<body>
+
+<!-- ================= CUSTOMER DETAILS =================
+     Change ONLY the values inside birthdayData below.
+========================================================= -->
+<script>
+const birthdayData = {
+  name: "Ananya",
+  birthday: "2026-10-05T00:00:00",
+  mainPhoto: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=900",
+  message: "Happy Birthday Ananya! ❤️ May your special day be filled with happiness, laughter and beautiful memories. You are truly special, and I hope this year brings you everything you wish for. Keep smiling and keep shining! ✨",
+  song: "https://cdn.pixabay.com/audio/2022/10/25/audio_946e5b5f4f.mp3",
+  photos: [
+    "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=900",
+    "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=900",
+    "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=900",
+    "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=900"
+  ]
+};
+</script>
+
+<button class="music" id="musicBtn" aria-label="Music">🔇</button>
+<audio id="music" loop preload="auto" src=""></audio>
+
+<div class="container">
+  <section class="hero">
+    <div class="kicker">A Special Day For</div>
+    <h1>Happy Birthday 🎂</h1>
+    <div class="hero-name" id="heroName"></div>
+
+    <div class="photo-wrap">
+      <img class="main-photo" id="mainPhoto" alt="Birthday photo">
+    </div>
+
+    <button class="btn" id="startBtn">✨ Start The Surprise</button>
+  </section>
+
+  <section class="card">
+    <h2>🎉 Birthday Countdown</h2>
+    <div class="countdown">
+      <div class="time"><b id="days">00</b><span>DAYS</span></div>
+      <div class="time"><b id="hours">00</b><span>HOURS</span></div>
+      <div class="time"><b id="minutes">00</b><span>MINUTES</span></div>
+      <div class="time"><b id="seconds">00</b><span>SECONDS</span></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>💌 A Message For You</h2>
+    <p class="message" id="message"></p>
+  </section>
+
+  <section class="card">
+    <span class="sparkle s1">💗</span><span class="sparkle s2">💖</span>
+    <span class="sparkle s3">✨</span><span class="sparkle s4">💞</span>
+    <h2>🎁 One Little Surprise</h2>
+    <p class="message" style="margin-bottom:20px">Someone has prepared something special for you...</p>
+    <div style="text-align:center">
+      <button class="btn" id="surpriseBtn">Open Your Surprise 💝</button>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>📸 Beautiful Memories</h2>
+    <div class="gallery" id="gallery"></div>
+  </section>
+
+  <div class="footer">Made with ❤️ specially for you</div>
+</div>
+
+<div class="modal" id="modal">
+  <div class="modal-box">
+    <div class="gift">🎁</div>
+    <h3>Surprise! 💖</h3>
+    <p id="surpriseText"></p>
+    <button class="btn" id="closeBtn">Close ❤️</button>
+  </div>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+$("heroName").textContent = birthdayData.name + " ❤️";
+$("mainPhoto").src = birthdayData.mainPhoto;
+$("message").textContent = birthdayData.message;
+$("surpriseText").textContent =
+  "Today is all about you, " + birthdayData.name + "! 🎉 May your life always be filled with love, happiness, success and beautiful moments. Keep smiling! ❤️";
+$("music").src = birthdayData.song;
+
+birthdayData.photos.forEach((src,i)=>{
+  const img=document.createElement("img");
+  img.src=src; img.alt="Memory "+(i+1); img.loading="lazy";
+  $("gallery").appendChild(img);
+});
+
+const target = new Date(birthdayData.birthday).getTime();
+function updateCountdown(){
+  let diff = target - Date.now();
+  if(diff < 0) diff = 0;
+  const d=Math.floor(diff/86400000);
+  const h=Math.floor((diff%86400000)/3600000);
+  const m=Math.floor((diff%3600000)/60000);
+  const s=Math.floor((diff%60000)/1000);
+  $("days").textContent=String(d).padStart(2,"0");
+  $("hours").textContent=String(h).padStart(2,"0");
+  $("minutes").textContent=String(m).padStart(2,"0");
+  $("seconds").textContent=String(s).padStart(2,"0");
+}
+updateCountdown(); setInterval(updateCountdown,1000);
+
+let heartTimer=null;
+function createHeart(){
+  const h=document.createElement("div");
+  h.className="heart";
+  h.textContent=["💗","💖","💕","💘","💝","❤️"][Math.floor(Math.random()*6)];
+  h.style.left=Math.random()*100+"vw";
+  h.style.fontSize=(16+Math.random()*24)+"px";
+  h.style.animationDuration=(5+Math.random()*5)+"s";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),11000);
+}
+function startHearts(){
+  if(heartTimer) return;
+  for(let i=0;i<12;i++) setTimeout(createHeart,i*180);
+  heartTimer=setInterval(createHeart,450);
+}
+startHearts();
+
+const music=$("music"), musicBtn=$("musicBtn");
+let playing=false;
+async function toggleMusic(){
+  try{
+    if(!playing){await music.play();playing=true;musicBtn.textContent="🔊";}
+    else{music.pause();playing=false;musicBtn.textContent="🔇";}
+  }catch(e){
+    alert("Music play nahi hua. Song URL check karein.");
+  }
+}
+musicBtn.addEventListener("click",toggleMusic);
+$("startBtn").addEventListener("click",()=>{
+  startHearts();
+  toggleMusic();
+  $("surpriseBtn").scrollIntoView({behavior:"smooth",block:"center"});
+});
+$("surpriseBtn").addEventListener("click",()=>{
+  $("modal").classList.add("show");
+  for(let i=0;i<30;i++) setTimeout(createHeart,i*70);
+});
+$("closeBtn").addEventListener("click",()=>$("modal").classList.remove("show"));
+$("modal").addEventListener("click",e=>{
+  if(e.target.id==="modal") $("modal").classList.remove("show");
+});
+</script>
+</body>
+</html>
